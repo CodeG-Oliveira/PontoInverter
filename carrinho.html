@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho - Ponto Inverter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo"><span class="logo-icon">❄</span><span>Ponto <strong>Inverter</strong></span></a>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="produtos.html">Produtos</a></li>
+            <li class="dropdown"><a href="#">Serviços ▾</a>
+                <div class="dropdown-content">
+                    <a href="instalacao.html">⚙ Instalação</a>
+                    <a href="manutencao.html">🔧 Manutenção</a>
+                    <a href="higienizacao.html">🧹 Higienização</a>
+                    <a href="consertoplacas.html">🔌 Conserto de Placas</a>
+                </div>
+            </li>
+            <li><a href="tecnologia-inverter.html">Tecnologia Inverter</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="carrinho.html" class="btn-carrinho active">🛒 Carrinho <span class="badge" id="badge-count">0</span></a></li>
+        </ul>
+        <button class="nav-toggle" id="nav-toggle">☰</button>
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1>🛒 Carrinho de Compras</h1>
+    <p>Revise seus itens antes de finalizar</p>
+</div>
+
+<section class="section">
+    <div class="container" style="max-width:720px;">
+        <div id="lista-carrinho"></div>
+        <div class="cart-total-box" id="total-box" style="display:none">
+            Total: R$ <span id="total">0,00</span>
+        </div>
+        <div id="carrinho-vazio" style="text-align:center;padding:3rem 0;display:none">
+            <div style="font-size:3rem;margin-bottom:1rem">🛒</div>
+            <h3 style="color:#64748b;margin-bottom:0.75rem">Seu carrinho está vazio</h3>
+            <a href="produtos.html" class="btn btn-primary">Ver Produtos</a>
+        </div>
+        <div id="btn-limpar-wrap" style="margin-top:1.5rem;display:none">
+            <button class="btn btn-outline" id="btn-limpar" style="border-color:#ef4444;color:#ef4444">🗑 Limpar Carrinho</button>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container footer-inner">
+        <div class="footer-brand"><span class="logo-icon">❄</span><strong>Ponto Inverter</strong><p>Especialistas em ar-condicionado.</p></div>
+        <div class="footer-links"><h4>Páginas</h4><a href="index.html">Home</a><a href="produtos.html">Produtos</a><a href="contato.html">Contato</a></div>
+        <div class="footer-links"><h4>Serviços</h4><a href="instalacao.html">Instalação</a><a href="manutencao.html">Manutenção</a><a href="higienizacao.html">Higienização</a></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2025 Ponto Inverter. Todos os direitos reservados.</p></div>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50));
+document.getElementById('nav-toggle').addEventListener('click', () => document.querySelector('.nav-menu').classList.toggle('open'));
+
+let carrinho = JSON.parse(localStorage.getItem('cart')) || [];
+
+function atualizarBadge() {
+    document.getElementById('badge-count').textContent = carrinho.length;
+}
+
+function renderizar() {
+    const lista = document.getElementById('lista-carrinho');
+    const totalBox = document.getElementById('total-box');
+    const vazio = document.getElementById('carrinho-vazio');
+    const limparWrap = document.getElementById('btn-limpar-wrap');
+    lista.innerHTML = '';
+
+    if (carrinho.length === 0) {
+        vazio.style.display = 'block';
+        totalBox.style.display = 'none';
+        limparWrap.style.display = 'none';
+        return;
+    }
+
+    vazio.style.display = 'none';
+    totalBox.style.display = 'block';
+    limparWrap.style.display = 'block';
+
+    let total = 0;
+    carrinho.forEach((item, i) => {
+        total += item.price;
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+        div.innerHTML = `
+            <span style="font-weight:600;color:#0f172a">${item.name}</span>
+            <div style="display:flex;align-items:center;gap:1rem">
+                <span style="font-weight:700;color:#1a56db">R$ ${item.price.toFixed(2).replace('.',',')}</span>
+                <button onclick="remover(${i})" style="background:#fee2e2;border:none;color:#991b1b;padding:0.35rem 0.75rem;border-radius:6px;cursor:pointer;font-weight:600">Remover</button>
+            </div>`;
+        lista.appendChild(div);
+    });
+
+    document.getElementById('total').textContent = total.toFixed(2).replace('.', ',');
+    atualizarBadge();
+}
+
+function remover(i) {
+    carrinho.splice(i, 1);
+    localStorage.setItem('cart', JSON.stringify(carrinho));
+    renderizar();
+}
+
+document.getElementById('btn-limpar').addEventListener('click', () => {
+    carrinho = [];
+    localStorage.removeItem('cart');
+    renderizar();
+});
+
+renderizar();
+</script>
+</body>
+</html>

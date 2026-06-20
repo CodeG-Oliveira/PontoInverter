@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Ponto Inverter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo"><span class="logo-icon">❄</span><span>Ponto <strong>Inverter</strong></span></a>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="produtos.html">Produtos</a></li>
+            <li class="dropdown"><a href="#">Serviços ▾</a>
+                <div class="dropdown-content">
+                    <a href="instalacao.html">⚙ Instalação</a>
+                    <a href="manutencao.html">🔧 Manutenção</a>
+                    <a href="higienizacao.html">🧹 Higienização</a>
+                    <a href="consertoplacas.html">🔌 Conserto de Placas</a>
+                </div>
+            </li>
+            <li><a href="tecnologia-inverter.html">Tecnologia Inverter</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="carrinho.html" class="btn-carrinho">🛒 <span class="badge" id="badge-count">0</span></a></li>
+        </ul>
+        <button class="nav-toggle" id="nav-toggle">☰</button>
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1>Cadastro de Cliente</h1>
+    <p>Cadastre-se para agendar serviços com mais facilidade</p>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="form-card">
+            <h2>Criar conta</h2>
+            <!-- Em produção: action="processa_cadastro.php" method="POST" -->
+            <form id="formCadastro">
+                <div class="form-group">
+                    <label for="nome">Nome completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" name="telefone" placeholder="(55) 99999-9999" required>
+                </div>
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" placeholder="Mínimo 6 caracteres" required minlength="6">
+                </div>
+                <div class="form-group">
+                    <label for="confirmar">Confirmar senha</label>
+                    <input type="password" id="confirmar" name="confirmar" placeholder="Repita a senha" required>
+                </div>
+                <button type="submit" class="btn btn-primary w100" style="margin-top:0.5rem">Cadastrar</button>
+                <div id="msg" style="margin-top:1rem;display:none"></div>
+            </form>
+            <p style="text-align:center;margin-top:1.25rem;font-size:0.9rem;color:#64748b">
+                Já tem conta? <a href="contato.html" style="color:#1a56db;font-weight:600">Entre em contato</a>
+            </p>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container footer-inner">
+        <div class="footer-brand"><span class="logo-icon">❄</span><strong>Ponto Inverter</strong><p>Especialistas em ar-condicionado.</p></div>
+        <div class="footer-links"><h4>Páginas</h4><a href="index.html">Home</a><a href="produtos.html">Produtos</a><a href="contato.html">Contato</a></div>
+        <div class="footer-links"><h4>Serviços</h4><a href="instalacao.html">Instalação</a><a href="manutencao.html">Manutenção</a><a href="higienizacao.html">Higienização</a></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2025 Ponto Inverter. Todos os direitos reservados.</p></div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50));
+document.getElementById('nav-toggle').addEventListener('click',()=>document.querySelector('.nav-menu').classList.toggle('open'));
+document.getElementById('badge-count').textContent=(JSON.parse(localStorage.getItem('cart'))||[]).length;
+
+document.getElementById('formCadastro').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const senha = document.getElementById('senha').value;
+    const confirmar = document.getElementById('confirmar').value;
+    const msg = document.getElementById('msg');
+
+    if (senha !== confirmar) {
+        msg.style.display = 'block';
+        msg.className = 'alert alert-danger';
+        msg.textContent = '✘ As senhas não coincidem!';
+        return;
+    }
+
+    // Aqui em produção enviaria ao PHP
+    msg.style.display = 'block';
+    msg.className = 'alert alert-success';
+    msg.textContent = '✔ Cadastro realizado com sucesso! Entraremos em contato em breve.';
+    this.reset();
+});
+</script>
+</body>
+</html>

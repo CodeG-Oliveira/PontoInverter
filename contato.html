@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Ponto Inverter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo"><span class="logo-icon">❄</span><span>Ponto <strong>Inverter</strong></span></a>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="produtos.html">Produtos</a></li>
+            <li class="dropdown"><a href="#">Serviços ▾</a>
+                <div class="dropdown-content">
+                    <a href="instalacao.html">⚙ Instalação</a>
+                    <a href="manutencao.html">🔧 Manutenção</a>
+                    <a href="higienizacao.html">🧹 Higienização</a>
+                    <a href="consertoplacas.html">🔌 Conserto de Placas</a>
+                </div>
+            </li>
+            <li><a href="tecnologia-inverter.html">Tecnologia Inverter</a></li>
+            <li><a href="contato.html" class="active">Contato</a></li>
+            <li><a href="carrinho.html" class="btn-carrinho">🛒 Carrinho <span class="badge" id="badge-count">0</span></a></li>
+        </ul>
+        <button class="nav-toggle" id="nav-toggle">☰</button>
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1>Entre em Contato</h1>
+    <p>Estamos prontos para te atender e fazer um orçamento</p>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="contato-cards">
+            <div class="contato-card">
+                <div class="icon">📱</div>
+                <h4>WhatsApp</h4>
+                <a href="https://wa.me/555591417437" target="_blank">+55 55 9141-7437</a>
+                <a href="https://wa.me/555591479048" target="_blank">+55 55 9147-9048</a>
+            </div>
+            <div class="contato-card">
+                <div class="icon">✉</div>
+                <h4>E-mail</h4>
+                <a href="mailto:gabrileoliveirav8@gmail.com">gabrileoliveirav8@gmail.com</a>
+            </div>
+            <div class="contato-card">
+                <div class="icon">📍</div>
+                <h4>Endereço</h4>
+                <span>R. Miguel Marques, 463</span>
+                <span>Ijuí - RS, 98700-000</span>
+            </div>
+        </div>
+
+        <div class="contact-grid">
+            <form class="contact-form" id="formContato">
+                <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:800;color:#0f172a;margin-bottom:0.5rem">Mande uma mensagem</h2>
+                <p style="color:#64748b;font-size:0.95rem;margin-bottom:0.5rem">Respondemos pelo WhatsApp ou e-mail em até 24h.</p>
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input type="text" name="nome" placeholder="Seu nome completo" required>
+                </div>
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="email" name="email" placeholder="seu@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Telefone</label>
+                    <input type="tel" name="telefone" placeholder="(55) 99999-9999">
+                </div>
+                <div class="form-group">
+                    <label>Serviço de interesse</label>
+                    <select name="servico">
+                        <option value="">Selecione...</option>
+                        <option>Instalação</option>
+                        <option>Manutenção</option>
+                        <option>Higienização</option>
+                        <option>Conserto de Placas</option>
+                        <option>Compra de produto</option>
+                        <option>Outro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Mensagem</label>
+                    <textarea name="mensagem" rows="4" placeholder="Descreva o que você precisa..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w100">Enviar Mensagem</button>
+                <div id="msg-sucesso" class="msg-sucesso" style="display:none">✔ Mensagem enviada! Entraremos em contato em breve.</div>
+            </form>
+
+            <div>
+                <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:800;color:#0f172a;margin-bottom:1rem">Nossa localização</h3>
+                <div class="map-wrap">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14040.049002572321!2d-53.943280550000004!3d-28.38869795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94fc2d15ff27d407%3A0xbee77b2fe6dbeeaf!2sR.%20Miguel%20Marques%2C%20463%20-%20Thom%C3%A9%20de%20Souza%2C%20Iju%C3%AD%20-%20RS%2C%2098700-000!5e0!3m2!1spt-BR!2sbr!4v1737594632980!5m2!1spt-BR!2sbr"
+                        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container footer-inner">
+        <div class="footer-brand"><span class="logo-icon">❄</span><strong>Ponto Inverter</strong><p>Especialistas em ar-condicionado em Ijuí e região.</p></div>
+        <div class="footer-links"><h4>Páginas</h4><a href="index.html">Home</a><a href="produtos.html">Produtos</a><a href="contato.html">Contato</a></div>
+        <div class="footer-links"><h4>Serviços</h4><a href="instalacao.html">Instalação</a><a href="manutencao.html">Manutenção</a><a href="higienizacao.html">Higienização</a></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2025 Ponto Inverter. Todos os direitos reservados.</p></div>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50));
+document.getElementById('nav-toggle').addEventListener('click', () => document.querySelector('.nav-menu').classList.toggle('open'));
+document.getElementById('badge-count').textContent = (JSON.parse(localStorage.getItem('cart')) || []).length;
+document.getElementById('formContato').addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('msg-sucesso').style.display = 'block';
+    this.reset();
+    setTimeout(() => document.getElementById('msg-sucesso').style.display = 'none', 5000);
+});
+</script>
+</body>
+</html>

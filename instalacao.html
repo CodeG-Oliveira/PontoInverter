@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instalação - Ponto Inverter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo"><span class="logo-icon">❄</span><span>Ponto <strong>Inverter</strong></span></a>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="produtos.html">Produtos</a></li>
+            <li class="dropdown"><a href="#">Serviços ▾</a>
+                <div class="dropdown-content">
+                    <a href="instalacao.html">⚙ Instalação</a>
+                    <a href="manutencao.html">🔧 Manutenção</a>
+                    <a href="higienizacao.html">🧹 Higienização</a>
+                    <a href="consertoplacas.html">🔌 Conserto de Placas</a>
+                </div>
+            </li>
+            <li><a href="tecnologia-inverter.html">Tecnologia Inverter</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="carrinho.html" class="btn-carrinho">🛒 <span class="badge" id="badge-count">0</span></a></li>
+        </ul>
+        <button class="nav-toggle" id="nav-toggle">☰</button>
+    </div>
+</nav>
+<div class="page-header">
+    <h1>⚙ Instalação de Ar-Condicionado</h1>
+    <p>Profissionais experientes para instalação residencial e comercial</p>
+</div>
+<section class="section">
+    <div class="container">
+        <div class="service-page-grid">
+            <div>
+                <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:800;color:#0f172a;margin-bottom:1rem">Por que escolher nossa instalação?</h2>
+                <p style="color:#64748b;margin-bottom:1.5rem">Garantimos instalação de alta qualidade seguindo normas de segurança e eficiência energética. Trabalhamos com Split, Janela e tecnologia Inverter.</p>
+                <div class="benefit-list">
+                    <div class="benefit-item"><span class="bi">✔</span><div><strong>Evita problemas futuros</strong><span>Instalação correta aumenta a vida útil do equipamento</span></div></div>
+                    <div class="benefit-item"><span class="bi">✔</span><div><strong>Melhor aproveitamento do espaço</strong><span>Posicionamento ideal para máximo rendimento</span></div></div>
+                    <div class="benefit-item"><span class="bi">✔</span><div><strong>Instalação segura e certificada</strong><span>Seguimos todas as normas técnicas</span></div></div>
+                    <div class="benefit-item"><span class="bi">✔</span><div><strong>Assistência completa</strong><span>Suporte durante e após o serviço</span></div></div>
+                </div>
+                <h3 style="font-weight:700;color:#0f172a;margin:1.75rem 0 0.75rem">Como funciona:</h3>
+                <ol style="padding-left:1.25rem;display:flex;flex-direction:column;gap:0.5rem;color:#475569">
+                    <li>Visita técnica para avaliação do local</li>
+                    <li>Definição da posição ideal para o equipamento</li>
+                    <li>Instalação completa com ajustes e testes</li>
+                    <li>Entrega com garantia e orientações de uso</li>
+                </ol>
+            </div>
+            <div class="info-box">
+                <h3>Solicite um orçamento</h3>
+                <p style="color:rgba(255,255,255,0.7);margin-bottom:1.25rem;font-size:0.95rem">Atendemos residências e empresas em Ijuí e região.</p>
+                <a href="https://wa.me/555591417437" target="_blank">📱 WhatsApp: +55 55 9141-7437</a>
+                <a href="mailto:gabrileoliveirav8@gmail.com">✉ gabrileoliveirav8@gmail.com</a>
+                <a href="contato.html" class="btn btn-primary" style="margin-top:1.25rem;display:block;text-align:center">Entrar em Contato</a>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="footer">
+    <div class="container footer-inner">
+        <div class="footer-brand"><span class="logo-icon">❄</span><strong>Ponto Inverter</strong><p>Especialistas em ar-condicionado.</p></div>
+        <div class="footer-links"><h4>Páginas</h4><a href="index.html">Home</a><a href="produtos.html">Produtos</a><a href="contato.html">Contato</a></div>
+        <div class="footer-links"><h4>Serviços</h4><a href="instalacao.html">Instalação</a><a href="manutencao.html">Manutenção</a><a href="higienizacao.html">Higienização</a></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2025 Ponto Inverter. Todos os direitos reservados.</p></div>
+</footer>
+<script>
+window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50));
+document.getElementById('nav-toggle').addEventListener('click',()=>document.querySelector('.nav-menu').classList.toggle('open'));
+document.getElementById('badge-count').textContent=(JSON.parse(localStorage.getItem('cart'))||[]).length;
+</script>
+</body>
+</html>

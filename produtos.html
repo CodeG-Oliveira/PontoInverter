@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos - Ponto Inverter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo"><span class="logo-icon">❄</span><span>Ponto <strong>Inverter</strong></span></a>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="produtos.html" class="active">Produtos</a></li>
+            <li class="dropdown"><a href="#">Serviços ▾</a>
+                <div class="dropdown-content">
+                    <a href="instalacao.html">⚙ Instalação</a>
+                    <a href="manutencao.html">🔧 Manutenção</a>
+                    <a href="higienizacao.html">🧹 Higienização</a>
+                    <a href="consertoplacas.html">🔌 Conserto de Placas</a>
+                </div>
+            </li>
+            <li><a href="tecnologia-inverter.html">Tecnologia Inverter</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="carrinho.html" class="btn-carrinho">🛒 Carrinho <span class="badge" id="badge-count">0</span></a></li>
+        </ul>
+        <button class="nav-toggle" id="nav-toggle">☰</button>
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1>Nossos Produtos</h1>
+    <p>Ar-condicionados e equipamentos de qualidade para seu conforto</p>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="products-grid" id="products-grid">
+
+            <div class="product-card">
+                <img src="imagens/produto1.png" alt="Ar-condicionado Inverter 9000 BTUs" onerror="this.style.background='#eff6ff';this.style.height='220px';this.alt='Produto 1'">
+                <div class="product-card-body">
+                    <h3>Ar-condicionado Inverter 9000 BTUs</h3>
+                    <p>Ideal para ambientes de até 15m². Alta eficiência energética com tecnologia Inverter.</p>
+                    <div class="product-price">R$ 2.499,00</div>
+                    <div class="product-btns">
+                        <a href="#" class="btn btn-primary btn-sm saiba-mais" data-id="1">Saiba Mais</a>
+                        <a href="#" class="btn btn-success btn-sm add-to-cart" data-name="Inverter 9000 BTUs" data-price="2499">🛒 Adicionar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="imagens/produto2.png" alt="Ar-condicionado Inverter 12000 BTUs" onerror="this.style.background='#eff6ff';this.style.height='220px'">
+                <div class="product-card-body">
+                    <h3>Ar-condicionado Inverter 12000 BTUs</h3>
+                    <p>Perfeito para quartos e salas de até 20m². Silencioso e econômico.</p>
+                    <div class="product-price">R$ 3.199,00</div>
+                    <div class="product-btns">
+                        <a href="#" class="btn btn-primary btn-sm saiba-mais" data-id="2">Saiba Mais</a>
+                        <a href="#" class="btn btn-success btn-sm add-to-cart" data-name="Inverter 12000 BTUs" data-price="3199">🛒 Adicionar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="imagens/produto3.png" alt="Placa Eletrônica Inverter" onerror="this.style.background='#eff6ff';this.style.height='220px'">
+                <div class="product-card-body">
+                    <h3>Placa Eletrônica Inverter</h3>
+                    <p>Placas originais e remanufaturadas para diversas marcas e modelos.</p>
+                    <div class="product-price">R$ 450,00</div>
+                    <div class="product-btns">
+                        <a href="#" class="btn btn-primary btn-sm saiba-mais" data-id="3">Saiba Mais</a>
+                        <a href="#" class="btn btn-success btn-sm add-to-cart" data-name="Placa Eletrônica Inverter" data-price="450">🛒 Adicionar</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container footer-inner">
+        <div class="footer-brand"><span class="logo-icon">❄</span><strong>Ponto Inverter</strong><p>Especialistas em ar-condicionado em Ijuí e região.</p></div>
+        <div class="footer-links"><h4>Páginas</h4><a href="index.html">Home</a><a href="produtos.html">Produtos</a><a href="contato.html">Contato</a></div>
+        <div class="footer-links"><h4>Serviços</h4><a href="instalacao.html">Instalação</a><a href="manutencao.html">Manutenção</a><a href="higienizacao.html">Higienização</a><a href="consertoplacas.html">Conserto de Placas</a></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2025 Ponto Inverter. Todos os direitos reservados.</p></div>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50));
+document.getElementById('nav-toggle').addEventListener('click', () => document.querySelector('.nav-menu').classList.toggle('open'));
+
+function atualizarBadge() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    document.getElementById('badge-count').textContent = cart.length;
+}
+atualizarBadge();
+
+document.querySelectorAll('.add-to-cart').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push({ name: this.dataset.name, price: parseFloat(this.dataset.price) });
+        localStorage.setItem('cart', JSON.stringify(cart));
+        atualizarBadge();
+        this.textContent = '✔ Adicionado!';
+        setTimeout(() => this.textContent = '🛒 Adicionar', 2000);
+    });
+});
+</script>
+</body>
+</html>

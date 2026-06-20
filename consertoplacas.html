@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conserto de Placas - Ponto Inverter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo"><span class="logo-icon">❄</span><span>Ponto <strong>Inverter</strong></span></a>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="produtos.html">Produtos</a></li>
+            <li class="dropdown"><a href="#">Serviços ▾</a>
+                <div class="dropdown-content">
+                    <a href="instalacao.html">⚙ Instalação</a>
+                    <a href="manutencao.html">🔧 Manutenção</a>
+                    <a href="higienizacao.html">🧹 Higienização</a>
+                    <a href="consertoplacas.html" class="active">🔌 Conserto de Placas</a>
+                </div>
+            </li>
+            <li><a href="tecnologia-inverter.html">Tecnologia Inverter</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="carrinho.html" class="btn-carrinho">🛒 <span class="badge" id="badge-count">0</span></a></li>
+        </ul>
+        <button class="nav-toggle" id="nav-toggle">☰</button>
+    </div>
+</nav>
+
+<!-- HEADER -->
+<div class="page-header">
+    <h1>🔌 Conserto de Placas Eletrônicas</h1>
+    <p>Especialistas em placas Inverter e convencionais — Diagnóstico gratuito!</p>
+</div>
+
+<!-- OFERTA DESTAQUE -->
+<div style="background:var(--accent);padding:1rem;text-align:center;color:#fff;font-weight:700;font-size:1rem">
+    🎉 Diagnóstico gratuito + <strong>10% de desconto</strong> no primeiro serviço! Entre em contato agora.
+</div>
+
+<!-- CONTEÚDO -->
+<section class="section">
+    <div class="container">
+        <div class="service-page-grid">
+
+            <!-- ESQUERDA -->
+            <div>
+                <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:800;color:var(--gray-900);margin-bottom:1rem">
+                    Por que confiar no nosso conserto?
+                </h2>
+                <p style="color:var(--gray-500);margin-bottom:1.5rem">
+                    Trabalhamos com diagnóstico técnico especializado para placas eletrônicas de sistemas de ar-condicionado Inverter e convencionais. Reparamos danos elétricos causados por surtos, realizamos testes completos pós-reparo e devolvemos seu equipamento funcionando perfeitamente.
+                </p>
+
+                <div class="benefit-list">
+                    <div class="benefit-item">
+                        <span class="bi">✔</span>
+                        <div>
+                            <strong>Diagnóstico técnico gratuito</strong>
+                            <span>Avaliação sem compromisso para Inverter e convencionais</span>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="bi">✔</span>
+                        <div>
+                            <strong>Reparo de danos elétricos</strong>
+                            <span>Corrigimos problemas causados por surtos e queimas</span>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="bi">✔</span>
+                        <div>
+                            <strong>Testes completos pós-reparo</strong>
+                            <span>Testamos em bancada antes de devolver</span>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="bi">✔</span>
+                        <div>
+                            <strong>Atendemos diversas marcas</strong>
+                            <span>LG, Samsung, Midea, Gree, Springer e mais</span>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="bi">✔</span>
+                        <div>
+                            <strong>10% de desconto no 1º serviço</strong>
+                            <span>Aproveite essa oferta especial para novos clientes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COMO FUNCIONA -->
+                <h3 style="font-weight:800;font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;color:var(--gray-900);margin:2rem 0 .75rem">
+                    Como funciona o processo:
+                </h3>
+                <ol style="padding-left:1.25rem;display:flex;flex-direction:column;gap:.6rem;color:var(--gray-500)">
+                    <li><strong style="color:var(--gray-900)">1. Você traz ou envia a placa</strong> — presencialmente ou via transportadora</li>
+                    <li><strong style="color:var(--gray-900)">2. Fazemos o diagnóstico</strong> — identificamos o problema sem custo</li>
+                    <li><strong style="color:var(--gray-900)">3. Passamos um orçamento</strong> — você decide se quer prosseguir</li>
+                    <li><strong style="color:var(--gray-900)">4. Realizamos o reparo</strong> — com testes completos em bancada</li>
+                    <li><strong style="color:var(--gray-900)">5. Devolvemos funcionando</strong> — com garantia no serviço</li>
+                </ol>
+
+                <!-- MARCAS -->
+                <h3 style="font-weight:800;font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;color:var(--gray-900);margin:2rem 0 .75rem">
+                    Marcas que atendemos:
+                </h3>
+                <div style="display:flex;flex-wrap:wrap;gap:.6rem">
+                    <?php
+                    $marcas = ['LG','Samsung','Midea','Gree','Springer','Carrier','Electrolux','Daikin','Hitachi','Panasonic'];
+                    foreach($marcas as $m){
+                        echo '<span style="background:var(--blue-pale);color:var(--blue-main);border:1px solid var(--blue-main);padding:.3rem .85rem;border-radius:20px;font-size:.85rem;font-weight:600">'.$m.'</span>';
+                    }
+                    ?>
+                </div>
+            </div>
+
+            <!-- DIREITA - INFO BOX -->
+            <div class="info-box">
+                <h3>🎉 Oferta Especial</h3>
+                <p style="color:rgba(255,255,255,.72);font-size:.9rem;margin-bottom:1.25rem">
+                    Diagnóstico 100% gratuito + 10% de desconto no primeiro reparo para novos clientes!
+                </p>
+
+                <div style="background:rgba(255,255,255,.07);border-radius:10px;padding:1rem;margin-bottom:1.25rem">
+                    <div style="font-family:'Barlow Condensed',sans-serif;font-size:2.5rem;font-weight:800;color:var(--accent);text-align:center">10%</div>
+                    <div style="text-align:center;color:rgba(255,255,255,.7);font-size:.85rem">desconto no 1º serviço</div>
+                </div>
+
+                <a href="https://wa.me/555591417437" target="_blank" style="display:block;margin:.5rem 0;color:var(--accent)">
+                    📱 WhatsApp: +55 55 9141-7437
+                </a>
+                <a href="https://wa.me/555591479048" target="_blank" style="display:block;margin:.5rem 0;color:var(--accent)">
+                    📱 WhatsApp: +55 55 9147-9048
+                </a>
+                <a href="mailto:gabrileoliveirav8@gmail.com" style="display:block;margin:.5rem 0;color:var(--accent)">
+                    ✉ gabrileoliveirav8@gmail.com
+                </a>
+
+                <a href="contato.html" class="btn btn-primary" style="margin-top:1.25rem;display:block;text-align:center;background:var(--accent)">
+                    Solicitar Avaliação Gratuita
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="background:var(--gray-100);padding:3rem 0">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Dúvidas frequentes</span>
+            <h2>Perguntas Frequentes</h2>
+        </div>
+        <div style="max-width:700px;margin:0 auto;display:flex;flex-direction:column;gap:1rem">
+            <?php
+            $faqs = [
+                ['Como sei se minha placa tem conserto?', 'Trazendo ou enviando a placa, fazemos o diagnóstico gratuitamente e informamos se há conserto viável.'],
+                ['Quanto tempo leva o reparo?', 'Em média de 3 a 7 dias úteis, dependendo da complexidade do problema e disponibilidade de componentes.'],
+                ['Vocês dão garantia no serviço?', 'Sim! Todos os reparos têm garantia. Entre em contato para saber os detalhes conforme o tipo de serviço.'],
+                ['Posso enviar a placa pelos Correios?', 'Sim! Embalamos corretamente para transporte seguro. Entre em contato para combinar os detalhes do envio.'],
+            ];
+            foreach($faqs as $faq){
+                echo '
+                <div style="background:#fff;border:1px solid var(--gray-200);border-radius:var(--r);padding:1.25rem">
+                    <h4 style="font-weight:700;color:var(--gray-900);margin-bottom:.5rem">❓ '.$faq[0].'</h4>
+                    <p style="color:var(--gray-500);font-size:.95rem">'.$faq[1].'</p>
+                </div>';
+            }
+            ?>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container footer-inner">
+        <div class="footer-brand">
+            <span class="logo-icon">❄</span>
+            <strong>Ponto Inverter</strong>
+            <p>Especialistas em ar-condicionado em Ijuí e região.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Páginas</h4>
+            <a href="index.html">Home</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="contato.html">Contato</a>
+        </div>
+        <div class="footer-links">
+            <h4>Serviços</h4>
+            <a href="instalacao.html">Instalação</a>
+            <a href="manutencao.html">Manutenção</a>
+            <a href="higienizacao.html">Higienização</a>
+            <a href="consertoplacas.html">Conserto de Placas</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Ponto Inverter. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50));
+document.getElementById('nav-toggle').addEventListener('click', () => document.querySelector('.nav-menu').classList.toggle('open'));
+document.getElementById('badge-count').textContent = (JSON.parse(localStorage.getItem('cart')) || []).length;
+</script>
+</body>
+</html>
